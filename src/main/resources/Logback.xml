@@ -1,0 +1,31 @@
+<configuration>
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender" >
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-4relative %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	 </appender>
+	 <appender name="FileAppender" class="ch.qos.logback.core.FileAppender">
+		 <encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-4relative %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+		 <file>
+		 	JobPortalLogs.log
+		 </file>
+	 </appender>
+	 <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>myapp.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+         <fileNamePattern>myapp-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+         <maxFileSize>10MB</maxFileSize> 
+         <maxHistory>30</maxHistory>
+      </rollingPolicy>
+      <encoder>
+         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+      </encoder>
+    </appender>
+	<root level="INFO">
+	 	<appender-ref ref="ConsoleAppender"/>
+	    <appender-ref ref="FileAppender"/> 
+		<appender-ref ref="ROLLING_FILE"/>
+	 </root>
+</configuration>

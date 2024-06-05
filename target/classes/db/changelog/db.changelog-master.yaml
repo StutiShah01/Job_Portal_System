@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+     id: "3"
+     author: stuti.shah
+     file: classpath:/db/changelog/sql-files/initial-schema.sql
+     relativeToChangelogFile: false
+     context: post-process-db-changes 
